@@ -1,0 +1,235 @@
+{
+  "name": "kuaitiankong",
+  "version": "6.1.8",
+  "author": "kuaitiankong.pro",
+  "description": "kuaitiankong Client",
+  "license": "MIT",
+  "main": "./dist/electron/main.js",
+  "grant_code": "s9FndU5rrM0thWQzre2HPsQIf5050wfE31FQ8t12S+0=",
+  "panel": "v2board",
+  "productName": "快天空",
+  "scripts": {
+	  "build:mac": "electron-builder --mac --x64",
+	  "build:win": "electron-builder --win"
+	},
+  
+	"build": {
+		  "productName": "快天空",
+		  "appId": "com.kuaitiankong.pro",
+		  "nsis": {
+			  "oneClick": false,
+			  "allowToChangeInstallationDirectory": true,
+			  "deleteAppDataOnUninstall": true,
+			  "perMachine": true
+		  },
+		
+		  "directories": {
+			  "output": "build"
+		  },
+		  "dmg": {
+			  "contents": [{
+				  "x": 410,
+				  "y": 150,
+				  "type": "link",
+				  "path": "/Applications"
+			  }, {
+				  "x": 130,
+				  "y": 150,
+				  "type": "file"
+			  }]
+		  },
+		  "mac": {
+			  "icon": "./dist/electron/static/icons/icon.png",
+			  "artifactName": "${productName}_setup_${version}.${ext}",
+			  "target": "dmg",
+			  "mergeASARs": true,
+			  "extraResources": [{
+				 	  "from": "./files/default",
+				  "to": "static/files/default"
+			  }, {
+				  "from": "./dist/electron/static/flags",
+				  "to": "static/flags"
+			  }, {
+				  "from": "./dist/electron/static/index",
+				  "to": "static/index"
+			  }, {
+				  "from": "./files/darwin",
+				  "to": "static/files/darwin"
+				  
+			  }]
+		  }, 
+		  "win": {
+			  "icon": "./dist/electron/static/icons/icon.png",
+			  "artifactName": "${productName}_setup_${version}.${ext}",
+			  "extraResources": [{
+				  "from": "./files/default",
+				  "to": "static/files/default"
+			  }, {
+				  "from": "./dist/electron/static/flags",
+				  "to": "static/flags"
+			  }, {
+				  "from": "./files/win",
+				  "to": "static/files/win"
+			  }]
+		  },
+		  "linux": {
+			  "icon": "static/icons",
+			  "artifactName": "${productName}_setup_${version}.${ext}"
+		  }
+	  },
+  "dependencies": {
+    "@babel/runtime": "^7.12.1",
+    "@dansmaculotte/vue-crisp-chat": "^0.1.0",
+    "@electron/asar": "^3.2.8",
+    "@electron/remote": "^2.0.9",
+    "@vscode/sudo-prompt": "^9.3.1",
+    "@vue/reactivity": "^3.2.33",
+    "axios": "^0.27.2",
+    "bytenode": "^1.5.3",
+    "content-disposition": "^0.5.4",
+    "dhcp": "^0.2.20",
+    "electron-log": "^4.1.0",
+    "electron-window-bounds": "^1.0.6",
+    "fix-path": "^3.0.0",
+    "fs-extra": "^10.0.0",
+    "get-port": "^5.1.1",
+    "got": "^9.6.0",
+    "koa": "^2.13.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.22.2",
+    "mousetrap": "^1.6.5",
+    "node-diff3": "^3.1.0",
+    "qrcode": "^1.4.4",
+    "qrcodejs2": "^0.0.2",
+    "read-last-lines": "^1.8.0",
+    "require-from-string": "^2.0.2",
+    "svgmap": "^2.10.1",
+    "tar-stream": "^2.0.1",
+    "tunnel": "0.0.6",
+    "unix-cron": "^1.0.3",
+    "uuid": "^8.3.2",
+    "validator": "^13.7.0",
+    "velocity-animate": "^1.5.2",
+    "vue": "^2.6.10",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-clipboard2": "^0.3.3",
+    "vue-electron": "^1.0.6",
+    "vue-i18n": "8.27.2",
+    "vue-router": "^3.0.1",
+    "vuedraggable": "^2.23.2",
+    "vuex": "^3.0.1",
+    "world-map-vue": "^0.2.1",
+    "ws": "^7.2.0",
+    "yaml": "^2.0.1"
+  },
+  "devDependencies": {
+    "@vue/shared": "3.4.21",
+    "mime-types": "2.1.35",
+    "shell-env": "0.3.0",
+    "cross-spawn": "7.0.3",
+    "shebang-command":"2.0.0",
+    "shebang-regex": "3.0.0",
+    "which": "2.0.2",
+    "isexe": "2.0.0",
+        "lru-cache": "4.1.5",
+    "pseudomap": "1.0.2",
+    "yallist": "2.1.2",
+      "default-shell": "1.0.1",
+    "execa": "0.5.1",
+    "get-stream": "2.3.1",
+    "object-assign": "4.1.1",
+    "pinkie-promise": "2.0.1",
+    "is-stream": "1.1.0",
+    "npm-run-path": "2.0.2",
+    "path-key": "2.0.1",
+    "p-finally": "1.0.0",
+    "signal-exit": "3.0.7",
+    "strip-eof": "1.0.0",
+
+
+
+
+    "strip-ansi": "3.0.1",
+    "ansi-regex": "2.1.1",
+    "dom7": "2.1.5",
+    "ssr-window": "1.0.1",
+    "swiper": "4.5.1",
+    "clipboard": "2.0.11",
+    "sortablejs": "1.10.2",
+    "chroma-js": "2.4.2",
+    "ms": "2.1.3",
+    "shell-path": "2.1.0",
+    "asynckit": "0.4.0",
+    "mime-db": "1.52.0",
+    "combined-stream": "1.0.8",
+    "delayed-stream": "1.0.0",
+    "debug": "3.2.7",
+    "form-data": "4.0.0",
+    "follow-redirects": "1.0.0",
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.12.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
+    "ajv": "^6.5.0",
+    "autoprefixer": "^10.4.2",
+    "babel-loader": "^8.2.3",
+    "cfonts": "^2.1.2",
+    "chai": "^4.1.2",
+    "chalk": "^2.4.1",
+    "concurrently": "^7.0.0",
+    "copy-webpack-plugin": "^4.5.1",
+    "cross-env": "^5.1.6",
+    "crypto-js": "^4.1.1",
+    "css-loader": "^0.28.11",
+    "del": "^3.0.0",
+    "devtron": "^1.4.0",
+    "electron": "^18.3.5",
+    "electron-builder": "^23.3.3",
+    "electron-builder-notarize": "^1.5.0",
+    "electron-debug": "^3.2.0",
+    "electron-devtools-installer": "^3.0.0",
+    "file-loader": "^1.1.11",
+    "html-webpack-plugin": "^3.2.0",
+    "inject-loader": "^4.0.1",
+    "javascript-obfuscator": "^2.10.1",
+    "js-md5": "^0.7.3",
+    "karma": "^2.0.2",
+    "karma-chai": "^0.1.0",
+    "karma-coverage": "^1.1.2",
+    "karma-electron": "^6.0.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "^0.0.32",
+    "karma-webpack": "^3.0.0",
+    "mini-css-extract-plugin": "0.4.0",
+    "mocha": "^5.2.0",
+    "monaco-editor": "^0.30.1",
+    "monaco-editor-webpack-plugin": "^6.0.0",
+    "multispinner": "^0.2.1",
+    "node-loader": "^0.6.0",
+    "postcss": "^8.4.6",
+    "postcss-loader": "^4.3.0",
+    "require-dir": "^1.0.0",
+    "rtf-parser": "^1.3.3",
+    "sass": "^1.50.0",
+    "sass-loader": "^7.0.3",
+    "select-prompt": "^0.3.2",
+    "spectron": "^19.0.0",
+    "style-loader": "^0.21.0",
+    "tailwindcss": "^3.0.23",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^1.0.1",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-clipboard2": "^0.3.3",
+    "vue-html-loader": "^1.2.4",
+    "vue-loader": "^15.2.4",
+    "vue-style-loader": "^4.1.0",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-merge": "^4.1.3"
+  }
+}
